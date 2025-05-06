@@ -1,87 +1,35 @@
-import React  from "react";
-import { useState } from "react"
-import Button from "../../components/Button/Button"
-import FormInput from "../../components/FormInput/FormInput"
-import styles from "./ContactPage.module.scss"
+import React from "react";
+import Button from "../../components/Button/Button";
+import FormInput from "../../components/FormInput/FormInput";
+import useForm from "../../hooks/useForm";
+import validateFormData from "../../helpers/validateFormData"; // Import the helper
+import styles from "./ContactPage.module.scss";
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({
+  const initialState = {
     name: "",
     email: "",
     subject: "",
     message: "",
-  })
+  };
 
-  const [errors, setErrors] = useState({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const onSubmit = (formData, callback) => {
+    // Simulate API call
+    setTimeout(() => {
+      console.log("Form submitted:", formData);
+      callback();
+    }, 1500);
+  };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
-
-    if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: "",
-      })
-    }
-  }
-
-  const validateForm = () => {
-    const newErrors = {}
-
-    // Name validation
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required"
-    }
-
-    // Email validation
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required"
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address"
-    }
-
-    // Subject validation
-    if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required"
-    }
-
-    // Message validation
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required"
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message must be at least 10 characters"
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    if (validateForm()) {
-      setIsSubmitting(true)
-
-      // Simulate API call
-      setTimeout(() => {
-        console.log("Form submitted:", formData)
-        setIsSubmitting(false)
-        setIsSubmitted(true)
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        })
-      }, 1500)
-    }
-  }
+  const {
+    formData,
+    errors,
+    isSubmitting,
+    isSubmitted,
+    handleChange,
+    handleSubmit,
+    setIsSubmitted,
+  } = useForm(initialState, validateFormData, onSubmit);
 
   return (
     <div className={styles.contactPage}>
@@ -263,7 +211,7 @@ const ContactPage = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;
