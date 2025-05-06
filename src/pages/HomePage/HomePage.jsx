@@ -23,7 +23,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className={styles.imageContainer}>
-            <img src="https://res.cloudinary.com/dmfs1od9n/image/upload/v1746465204/Proyecto_nuevo_re3hhn.png" alt="home-image" className={styles.image} /><h1 className={styles.homeLogo}>EcoTrack</h1>
+            <img src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,q_auto,w_250/v1746465204/Proyecto_nuevo_re3hhn.png" alt="home-image" className={styles.image} /><h1 className={styles.homeLogo}>EcoTrack</h1>
           </div>
         </div>
       </section>
@@ -85,7 +85,7 @@ const HomePage = () => {
               </p>
               <div className={styles.author}>
                 <div className={styles.avatar}>
-                  <img className={styles.avatar_img} src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,w_auto/v1746483492/michael-dam-mEZ3PoFGs_k-unsplash_ii91rj.jpg" alt="sara-image" />
+                  <img className={styles.avatar_img} src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,q_auto,w_250/v1746483492/michael-dam-mEZ3PoFGs_k-unsplash_ii91rj.jpg" alt="sara-image" loading="lazy" />
                 </div>
                 <div>
                   <h4>Sarah Johnson</h4>
@@ -102,7 +102,7 @@ const HomePage = () => {
               </p>
               <div className={styles.author}>
                 <div className={styles.avatar}>
-                  <img className={styles.avatar_img} src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,w_auto/v1746484001/alexander-hipp-iEEBWgY_6lA-unsplash_ghz4qm.jpg" alt="michael-image" />
+                  <img className={styles.avatar_img} src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,q_auto,w_250/v1746484001/alexander-hipp-iEEBWgY_6lA-unsplash_ghz4qm.jpg" alt="michael-image" loading="lazy" />
                 </div>
                 <div>
                   <h4>Michael Chen</h4>
@@ -119,7 +119,7 @@ const HomePage = () => {
               </p>
               <div className={styles.author}>
                 <div className={styles.avatar}>
-                <img className={styles.avatar_img} src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,w_auto/v1746484007/courtney-cook-TSZo17r3m0s-unsplash_yncign.jpg" alt="emma-image"  />
+                <img className={styles.avatar_img} src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,q_auto,w_250/v1746484007/courtney-cook-TSZo17r3m0s-unsplash_yncign.jpg" alt="emma-image" loading="lazy" />
                 </div>
                 <div>
                   <h4>Emma Rodriguez</h4>

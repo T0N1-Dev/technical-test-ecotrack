@@ -38,7 +38,7 @@ const AboutPage = () => {
               </p>
             </div>
             <div className={styles.image}>
-              <img className={styles.imageWrapper} src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,w_auto/v1746549593/303_ot5asd.jpg" alt="About-img" />
+              <img className={styles.imageWrapper} src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,q_auto,w_800/v1746549593/303_ot5asd.jpg" alt="About-img" />
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@ const AboutPage = () => {
           <div className={styles.teamGrid}>
             <div className={styles.teamMember}>
               <div className={styles.avatar}>
-                <img src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,w_auto/v1746550727/oguz-yagiz-kara-MZf0mI14RI0-unsplash_fuvqnh.jpg"  alt="alex-image"/>
+                <img src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,q_auto,w_250/v1746550727/oguz-yagiz-kara-MZf0mI14RI0-unsplash_fuvqnh.jpg"  alt="alex-image" loading="lazy" />
               </div>
               <h3>Alex Johnson</h3>
               <p>Co-Founder & CEO</p>
@@ -152,7 +152,7 @@ const AboutPage = () => {
 
             <div className={styles.teamMember}>
               <div className={styles.avatar}>
-                <img src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,w_auto/v1746551855/christina-wocintechchat-com-SJvDxw0azqw-unsplash_v6z462.jpg" alt="maya-image" />
+                <img src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,q_auto,w_250/v1746551855/christina-wocintechchat-com-SJvDxw0azqw-unsplash_v6z462.jpg" alt="maya-image" loading="lazy" />
               </div>
               <h3>Maya Patel</h3>
               <p>Co-Founder & CTO</p>
@@ -160,7 +160,7 @@ const AboutPage = () => {
 
             <div className={styles.teamMember}>
               <div className={styles.avatar}>
-                <img src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,w_auto/v1746550723/alex-suprun-ZHvM3XIOHoE-unsplash_miewga.jpg" alt="david-image" />
+                <img src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,q_auto,w_250/v1746550723/alex-suprun-ZHvM3XIOHoE-unsplash_miewga.jpg" alt="david-image" loading="lazy" />
               </div>
               <h3>David Kim</h3>
               <p>Lead Environmental Scientist</p>
@@ -168,7 +168,7 @@ const AboutPage = () => {
 
             <div className={styles.teamMember}>
               <div className={styles.avatar}>
-                <img src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,w_auto/v1746550667/christopher-campbell-rDEOVtE7vOs-unsplash_ttb4hk.jpg" alt="sophia-image" />
+                <img src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,q_auto,w_250/v1746550667/christopher-campbell-rDEOVtE7vOs-unsplash_ttb4hk.jpg" alt="sophia-image" loading="lazy" />
               </div>
               <h3>Sophia Chen</h3>
               <p>Head of Product</p>

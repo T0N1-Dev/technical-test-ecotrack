@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../components/Button/Button";
 import FormInput from "../../components/FormInput/FormInput";
 import useForm from "../../hooks/useForm";
-import validateFormData from "../../helpers/validateFormData"; // Import the helper
+import validateFormData from "../../helpers/validateFormData";
 import styles from "./ContactPage.module.scss";
 
 const ContactPage = () => {
