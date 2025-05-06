@@ -1,0 +1,151 @@
+@use './index' as *;
+
+// Reset and base styles
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  line-height: $line-height-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+// Light theme variables
+:root {
+  --primary-color: #{$primary-color};
+  --primary-dark: #{$primary-dark};
+  --primary-light: #{$primary-light};
+  --primary-rgb: #{$primary-rgb};
+  --secondary-color: #{$secondary-color};
+  --secondary-dark: #{$secondary-dark};
+  --secondary-light: #{$secondary-light};
+  --success-color: #{$success-color};
+  --warning-color: #{$warning-color};
+  --error-color: #{$error-color};
+  --error-rgb: #{$error-rgb};
+  --info-color: #{$info-color};
+  
+  // Light theme specific
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --text-muted: #666666;
+  --text-bold: #222222;
+  --heading-color: #222222;
+  --border-color: #e0e0e0;
+  --card-bg: #ffffff;
+  --section-bg: #f8f9fa;
+  --input-bg: #ffffff;
+  --hero-bg-start: #f8f9fa;
+  --hero-bg-end: #e9ecef;
+  --hero-heading: #222222;
+  --hero-text: #444444;
+  --footer-bg: #222222;
+  --footer-text: #f8f9fa;
+}
+
+// Dark theme variables
+.dark {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --text-bold: #ffffff;
+  --heading-color: #ffffff;
+  --border-color: #333333;
+  --card-bg: #1e1e1e;
+  --section-bg: #1a1a1a;
+  --input-bg: #2a2a2a;
+  --hero-bg-start: #1a1a1a;
+  --hero-bg-end: #121212;
+  --hero-heading: #ffffff;
+  --hero-text: #e0e0e0;
+  --footer-bg: #0a0a0a;
+  --footer-text: #e0e0e0;
+}
+
+// App container
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Main content
+.main-content {
+  flex: 1;
+}
+
+// Utility classes
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Animations
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

@@ -1,0 +1,270 @@
+import React  from "react";
+import { useState } from "react"
+import Button from "../../components/Button/Button"
+import FormInput from "../../components/FormInput/FormInput"
+import styles from "./ContactPage.module.scss"
+
+const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  })
+
+  const [errors, setErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData({
+      ...formData,
+      [name]: value,
+    })
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: "",
+      })
+    }
+  }
+
+  const validateForm = () => {
+    const newErrors = {}
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required"
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required"
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address"
+    }
+
+    // Subject validation
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Subject is required"
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required"
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters"
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (validateForm()) {
+      setIsSubmitting(true)
+
+      // Simulate API call
+      setTimeout(() => {
+        console.log("Form submitted:", formData)
+        setIsSubmitting(false)
+        setIsSubmitted(true)
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+      }, 1500)
+    }
+  }
+
+  return (
+    <div className={styles.contactPage}>
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.container}>
+          <div className={styles.content}>
+            <h1>Contact Us</h1>
+            <p>
+              Have questions or feedback? We'd love to hear from you. Fill out the form below and our team will get back
+              to you as soon as possible.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className={styles.contactForm}>
+        <div className={styles.container}>
+          <div className={styles.grid}>
+            <div className={styles.formContainer}>
+              {isSubmitted ? (
+                <div className={styles.successMessage}>
+                  <h2>Thank You!</h2>
+                  <p>Your message has been sent successfully. We'll get back to you soon.</p>
+                  <Button onClick={() => setIsSubmitted(false)} variant="outline">
+                    Send Another Message
+                  </Button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <h2>Send Us a Message</h2>
+
+                  <FormInput
+                    label="Name"
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    error={errors.name}
+                    required
+                  />
+
+                  <FormInput
+                    label="Email"
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Your email address"
+                    error={errors.email}
+                    required
+                  />
+
+                  <FormInput
+                    label="Subject"
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="What is this regarding?"
+                    error={errors.subject}
+                    required
+                  />
+
+                  <FormInput
+                    label="Message"
+                    type="textarea"
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Your message"
+                    error={errors.message}
+                    required
+                  />
+
+                  <Button type="submit" fullWidth disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </Button>
+                </form>
+              )}
+            </div>
+
+            <div className={styles.contactInfo}>
+              <h2>Get in Touch</h2>
+
+              <div className={styles.infoItem}>
+                <div className={styles.icon}>📧</div>
+                <div>
+                  <h3>Email</h3>
+                  <p>info@ecotrack.com</p>
+                  <p>support@ecotrack.com</p>
+                </div>
+              </div>
+
+              <div className={styles.infoItem}>
+                <div className={styles.icon}>📱</div>
+                <div>
+                  <h3>Phone</h3>
+                  <p>+1 (555) 123-4567</p>
+                  <p>Mon-Fri, 9am-5pm EST</p>
+                </div>
+              </div>
+
+              <div className={styles.infoItem}>
+                <div className={styles.icon}>📍</div>
+                <div>
+                  <h3>Office</h3>
+                  <p>123 Green Street</p>
+                  <p>Eco City, EC 12345</p>
+                </div>
+              </div>
+
+              <div className={styles.social}>
+                <h3>Follow Us</h3>
+                <div className={styles.socialLinks}>
+                  <a href="#" aria-label="Facebook">
+                    FB
+                  </a>
+                  <a href="#" aria-label="Twitter">
+                    TW
+                  </a>
+                  <a href="#" aria-label="Instagram">
+                    IG
+                  </a>
+                  <a href="#" aria-label="LinkedIn">
+                    LI
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className={styles.faq}>
+        <div className={styles.container}>
+          <h2>Frequently Asked Questions</h2>
+
+          <div className={styles.faqGrid}>
+            <div className={styles.faqItem}>
+              <h3>How accurate is the carbon footprint calculator?</h3>
+              <p>
+                Our calculator uses industry-standard methodologies and data sources to provide estimates that are
+                typically within 10-15% of actual emissions. We continuously update our models to improve accuracy.
+              </p>
+            </div>
+
+            <div className={styles.faqItem}>
+              <h3>Is my data secure and private?</h3>
+              <p>
+                Yes, we take data privacy seriously. We use encryption and follow best practices for data security. We
+                never sell your personal information to third parties.
+              </p>
+            </div>
+
+            <div className={styles.faqItem}>
+              <h3>Can I use EcoTrack for my business?</h3>
+              <p>
+                We offer business plans with additional features for tracking organizational carbon footprints. Contact
+                our sales team for more information.
+              </p>
+            </div>
+
+            <div className={styles.faqItem}>
+              <h3>How often should I update my carbon footprint?</h3>
+              <p>
+                For the most accurate tracking, we recommend updating your data monthly. However, even quarterly updates
+                can provide valuable insights into your environmental impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default ContactPage

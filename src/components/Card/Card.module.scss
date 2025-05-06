@@ -1,0 +1,50 @@
+@use '../../styles/index' as *;
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: $border-radius;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .icon {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: rgba(var(--primary-rgb), 0.1);
+  }
+  
+  .header {
+    margin-bottom: 1rem;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+    color: var(--heading-color);
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--text-muted);
+  }
+  
+  .content {
+    flex: 1;
+  }
+}

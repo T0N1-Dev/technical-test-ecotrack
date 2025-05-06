@@ -1,0 +1,85 @@
+@use '../../styles/index' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: $border-radius;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  &.fullWidth {
+    width: 100%;
+  }
+  
+  // Variants
+  &.primary {
+    background-color: var(--primary-color);
+    color: white;
+    
+    &:hover:not(:disabled) {
+      background-color: var(--primary-dark);
+    }
+  }
+  
+  &.secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    
+    &:hover:not(:disabled) {
+      background-color: var(--secondary-dark);
+    }
+  }
+  
+  &.outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    
+    &:hover:not(:disabled) {
+      background-color: var(--primary-color);
+      color: white;
+    }
+  }
+  
+  &.text {
+    background-color: transparent;
+    color: var(--primary-color);
+    
+    &:hover:not(:disabled) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  &.toggle {
+    color: var(--primary-dark);
+    &:hover:not(:disabled) {
+      background-color: transparent;
+      transform: rotate(360deg);
+    }
+  }
+  
+  // Sizes
+  &.small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  &.medium {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+  
+  &.large {
+    padding: 0.8rem 1.6rem;
+    font-size: 1.1rem;
+  }
+}
