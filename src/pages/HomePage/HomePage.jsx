@@ -119,7 +119,7 @@ const HomePage = () => {
               </p>
               <div className={styles.author}>
                 <div className={styles.avatar}>
-                <img className={styles.avatar_img} src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,w_auto/v1746484007/courtney-cook-TSZo17r3m0s-unsplash_yncign.jpg" alt="emma-image" />
+                <img className={styles.avatar_img} src="https://res.cloudinary.com/dmfs1od9n/image/upload/f_auto,w_auto/v1746484007/courtney-cook-TSZo17r3m0s-unsplash_yncign.jpg" alt="emma-image"  />
                 </div>
                 <div>
                   <h4>Emma Rodriguez</h4>

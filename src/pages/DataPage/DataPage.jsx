@@ -1,46 +1,17 @@
-import React from "react";
-import { useState, useEffect } from "react"
-import Card from "../../components/Card/Card"
-import styles from "./DataPage.module.scss"
+import React, { useState } from "react";
+import Card from "../../components/Card/Card";
+import useFetchData from "../../hooks/useFetchData";
+import styles from "./DataPage.module.scss";
 
 const DataPage = () => {
-  const [users, setUsers] = useState([])
-  const [posts, setPosts] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [activeTab, setActiveTab] = useState("users")
+  const [activeTab, setActiveTab] = useState("users");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true)
-      setError(null)
-
-      try {
-        // Fetch users data
-        const usersResponse = await fetch("https://jsonplaceholder.typicode.com/users")
-        if (!usersResponse.ok) {
-          throw new Error("Failed to fetch users")
-        }
-        const usersData = await usersResponse.json()
-        setUsers(usersData)
-
-        // Fetch posts data
-        const postsResponse = await fetch("https://jsonplaceholder.typicode.com/posts")
-        if (!postsResponse.ok) {
-          throw new Error("Failed to fetch posts")
-        }
-        const postsData = await postsResponse.json()
-        setPosts(postsData.slice(0, 12)) // Limit to 12 posts
-
-        setIsLoading(false)
-      } catch (err) {
-        setError(err.message)
-        setIsLoading(false)
-      }
-    }
-
-    fetchData()
-  }, [])
+  const { data: users, isLoading: usersLoading, error: usersError } = useFetchData(
+    "https://jsonplaceholder.typicode.com/users"
+  );
+  const { data: posts, isLoading: postsLoading, error: postsError } = useFetchData(
+    "https://jsonplaceholder.typicode.com/posts"
+  );
 
   const UserCard = ({ user }) => (
     <Card className={styles.userCard}>
@@ -66,7 +37,7 @@ const DataPage = () => {
         </p>
       </div>
     </Card>
-  )
+  );
 
   const PostCard = ({ post }) => (
     <Card className={styles.postCard}>
@@ -77,7 +48,11 @@ const DataPage = () => {
         <span>Post ID: {post.id}</span>
       </div>
     </Card>
-  )
+  );
+
+  const isLoading = activeTab === "users" ? usersLoading : postsLoading;
+  const error = activeTab === "users" ? usersError : postsError;
+  const data = activeTab === "users" ? users : posts.slice(0, 12); // Limit posts to 12
 
   return (
     <div className={styles.dataPage}>
@@ -127,16 +102,16 @@ const DataPage = () => {
               </div>
             ) : (
               <div className={styles.dataGrid}>
-                {activeTab === "users" ? (
-                  users.length > 0 ? (
-                    users.map((user) => <UserCard key={user.id} user={user} />)
-                  ) : (
-                    <p>No users found.</p>
+                {data.length > 0 ? (
+                  data.map((item) =>
+                    activeTab === "users" ? (
+                      <UserCard key={item.id} user={item} />
+                    ) : (
+                      <PostCard key={item.id} post={item} />
+                    )
                   )
-                ) : posts.length > 0 ? (
-                  posts.map((post) => <PostCard key={post.id} post={post} />)
                 ) : (
-                  <p>No posts found.</p>
+                  <p>No data found.</p>
                 )}
               </div>
             )}
@@ -144,7 +119,7 @@ const DataPage = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default DataPage
+export default DataPage;
