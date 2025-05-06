@@ -23,7 +23,6 @@ const ContactPage = () => {
       [name]: value,
     })
 
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -205,16 +204,16 @@ const ContactPage = () => {
                 <h3>Follow Us</h3>
                 <div className={styles.socialLinks}>
                   <a href="#" aria-label="Facebook">
-                    FB
+                    <img src="https://img.icons8.com/ios/500/facebook-new.png" alt="facebook-new"/>
                   </a>
                   <a href="#" aria-label="Twitter">
-                    TW
+                    <img src="https://img.icons8.com/ios/500/twitterx--v2.png" alt="twitterx--v2"/>
                   </a>
                   <a href="#" aria-label="Instagram">
-                    IG
+                    <img src="https://img.icons8.com/ios/500/instagram-new--v1.png" alt="instagram-new--v1"/>
                   </a>
                   <a href="#" aria-label="LinkedIn">
-                    LI
+                    <img src="https://img.icons8.com/ios/500/linkedin.png" alt="linkedIn-icon" />
                   </a>
                 </div>
               </div>

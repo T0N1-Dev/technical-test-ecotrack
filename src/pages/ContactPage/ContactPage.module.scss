@@ -145,6 +145,11 @@
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 0.9rem;
+
+            img {
+              width: 1.7rem;
+              height: 1.7rem;
+            }
             
             &:hover {
               background-color: var(--primary-color);

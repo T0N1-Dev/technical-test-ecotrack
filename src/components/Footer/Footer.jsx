@@ -65,13 +65,13 @@ const Footer = () => {
           <p>&copy; {currentYear} EcoTrack. All rights reserved.</p>
           <div className={styles.social}>
             <a href="#" aria-label="Facebook">
-            <img src="https://img.icons8.com/ios/500/facebook-new.png" alt="facebook-new"/>
+              <img src="https://img.icons8.com/ios/500/facebook-new.png" alt="facebook-new"/>
             </a>
             <a href="#" aria-label="TwitterX">
-            <img src="https://img.icons8.com/ios/500/twitterx--v2.png" alt="twitterx--v2"/>
+              <img src="https://img.icons8.com/ios/500/twitterx--v2.png" alt="twitterx--v2"/>
             </a>
             <a href="#" aria-label="Instagram">
-            <img src="https://img.icons8.com/ios/500/instagram-new--v1.png" alt="instagram-new--v1"/>
+              <img src="https://img.icons8.com/ios/500/instagram-new--v1.png" alt="instagram-new--v1"/>
             </a>
             <a href="#" aria-label="LinkedIn">
               <img src="https://img.icons8.com/ios/500/linkedin.png" alt="linkedIn-icon" />
